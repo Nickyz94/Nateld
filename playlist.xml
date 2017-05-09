@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ximpel>
     <playlist>
-		<subject id="mySubject1" leadsTo="mySubject2">
+		<subject id="intro">
 			<media>
-			  <image src="media/nateld.png" duration="5" leadsTo="mySubject3"/>
+                <image src="media/intro.png" leadsTo="pick-a-hero">
+                <overlay text="Klik om te beginnen" textColor="#000000" height="180px" width="1920px" leadsTo="pick-a-hero" x="0px" y="900px" backgroundColor="#ffffff"/>
+                </image>
 			</media>
 		</subject>
+		<subject id="pick-a-hero">
+			<media>
+                <image src="media/pick_a_hero.png" duration="5">
+                <overlay height="600px" width="600px" leadsTo="levels" x="660px" y="240px" backgroundColor="#ffffff"/>
+                </image>
+			</media>
+		</subject>        
     </playlist>
 </ximpel>
