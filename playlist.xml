@@ -1,123 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ximpel>
-    <playlist>
-        : Intro
-		<subject id="intro">
-			<media>
-                <image src="media/intro.png" leadsTo="pick-a-hero">
-                <overlay text="Klik om te beginnen" textColor="#000000" height="180px" width="1920px" leadsTo="pick-a-hero" x="0px" y="900px" backgroundColor="#ffffff"/>
-                </image>
-			</media>
-		</subject>
-        
-        : Pick a hero
-		<subject id="pick-a-hero">
-			<media>
-                <image src="media/pick_a_hero.png" duration="5">
-                <overlay height="600px" width="600px" leadsTo="easy" x="660px" y="240px" backgroundColor="#ffffff"/>
-                </image>
-			</media>
-		</subject>
-        
-        : Easy level
-        <subject id="easy">
-            <media>
-                <image src="media/easy_level.png" duration="5">
-                    : Pick plant 1 (easy)
-                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="1"/>
-                    </overlay>
-                    : Pick plant 2 (easy)
-                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="2"/>
-                    </overlay>
-                    : Pick plant 3 (easy)
-                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="3"/>
-                    </overlay>
-                </image>
-			</media>
-        </subject>
-        
-        : Intermediate level
-        <subject id="intermediate">
-            <media>
-                <image src="media/easy_level.png" duration="5">
-                    : Pick plant 4 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="1"/>
-                    </overlay>
-                    : Pick plant 5 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="2"/>
-                    </overlay>
-                    : Pick plant 6 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="3"/>
-                    </overlay>
-                </image>
-			</media>
-        </subject>
-        
-        : Hard level
-        <subject id="hard">
-            <media>
-                <image src="media/pick_a_hero.png" duration="5">
-                    : Pick plant 7 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="1"/>
-                    </overlay>
-                    : Pick plant 8 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="2"/>
-                    </overlay>
-                    : Pick plant 9 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ff00ff">
-                        <variable id="plant" operation="set" value="3"/>
-                    </overlay>
-                </image>
-			</media>
-        </subject>
-        
-        : Give water
-        <subject id="water">
-            <media>
-                <image src="media/give_water.png" duration="5">
-                    : Pick amount of water: small
-                    <overlay height="400" width="400px" leadsTo="sun" x="340" y="290px" backgroundColor="#ff00ff">
-                        <variable id="water" operation="set" value="1"/>
-                    </overlay>
-                    : Pick amount of water: medium
-                    <overlay height="400" width="400px" leadsTo="sun" x="760" y="290px" backgroundColor="#ff00ff">
-                        <variable id="water" operation="set" value="2"/>
-                    </overlay>
-                    : Pick amount of water: big
-                    <overlay height="400" width="400px" leadsTo="sun" x="1180" y="290px" backgroundColor="#ff00ff">
-                        <variable id="water" operation="set" value="3"/>
-                    </overlay>
-                </image>
-			</media>
-        </subject>
-        
-        : Give sun
-        : TODO: Lead to correct video
-        <subject id="sun">
-            <media>
-                <image src="media/give_sun.png" duration="5">
-                    : Pick amount of water: small
-                    <overlay height="400" width="400px" leadsTo="easy" x="340" y="290px" backgroundColor="#ff00ff">
-                        <variable id="sun" operation="set" value="1"/>
-                    </overlay>
-                    : Pick amount of water: medium
-                    <overlay height="400" width="400px" leadsTo="easy" x="760" y="290px" backgroundColor="#ff00ff">
-                        <variable id="sun" operation="set" value="2"/>
-                    </overlay>
-                    : Pick amount of water: big
-                    <overlay height="400" width="400px" leadsTo="easy" x="1180" y="290px" backgroundColor="#ff00ff">
-                        <variable id="sun" operation="set" value="3"/>
-                    </overlay>
-                </image>
-			</media>
-        </subject>
-    </playlist>
+  <playlist>
+    : Intro
+    <variable id="water" operation="set" value="0" />
+    <variable id="sun" operation="set" value="0" />
+    <variable id="plant" operation="set" value="0" />
+    <subject id="intro">
+      <media>
+        <image src="media/intro.png" leadsTo="pick-a-hero">
+          <overlay text="Klik om te beginnen" textColor="#000000" height="180px" width="1920px" leadsTo="pick-a-hero" x="0px" y="900px" backgroundColor="#ffffff"/>
+        </image>
+      </media>
+    </subject>
+
+    : Pick a hero
+    <subject id="pick-a-hero">
+      <media>
+        <image src="media/pick_a_hero.png" duration="5">
+          <overlay height="600px" width="600px" leadsTo="easy" x="660px" y="240px" backgroundColor="#ffffff"/>
+        </image>
+      </media>
+    </subject>
+
+    : Easy level
+    <subject id="easy">
+      <media>
+        <image src="media/easy_level.png" duration="5">
+          : Pick plant 1 (easy)
+          <overlay height="410" width="420px" leadsTo="water" x="500" y="390px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="1"/>
+          </overlay>
+          : Pick plant 2 (easy)
+          <overlay height="410" width="410px" leadsTo="water" x="920" y="390px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="2"/>
+          </overlay>
+          : Pick plant 3 (easy)
+          <!-- <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="3"/>
+          </overlay> -->
+        </image>
+      </media>
+    </subject>
+
+    : Intermediate level
+    <subject id="intermediate">
+      <media>
+        <image src="media/easy_level.png" duration="5">
+          : Pick plant 4 (medium)
+          <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="1"/>
+          </overlay>
+          : Pick plant 5 (medium)
+          <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="2"/>
+          </overlay>
+          : Pick plant 6 (medium)
+          <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="3"/>
+          </overlay>
+        </image>
+      </media>
+    </subject>
+
+    : Hard level
+    <subject id="hard">
+      <media>
+        <image src="media/pick_a_hero.png" duration="5">
+          : Pick plant 7 (hard)
+          <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="1"/>
+          </overlay>
+          : Pick plant 8 (hard)
+          <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="2"/>
+          </overlay>
+          : Pick plant 9 (hard)
+          <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
+            <variable id="plant" operation="set" value="3"/>
+          </overlay>
+        </image>
+      </media>
+    </subject>
+
+    : Give water
+    <subject id="water">
+      <media>
+        <image src="media/give_water.png">
+          : Pick amount of water: small
+          <overlay height="400" width="400px" leadsTo="sun" x="340" y="290px" backgroundColor="#ffffff">
+            <score id="water" operation="set" value="1"/>
+          </overlay>
+          : Pick amount of water: medium
+          <overlay height="400" width="400px" leadsTo="sun" x="760" y="290px" backgroundColor="#ffffff">
+            <score id="water" operation="set" value="2"/>
+          </overlay>
+          : Pick amount of water: big
+          <overlay height="400" width="400px" leadsTo="sun" x="1180" y="290px" backgroundColor="#ffffff">
+            <score id="water" operation="set" value="3"/>
+          </overlay>
+        </image>
+      </media>
+    </subject>
+
+    : Give sun
+    : TODO: Lead to correct video
+    <subject id="sun">
+      <media>
+        <image src="media/give_sun.png">
+          : Pick amount of water: small
+          <overlay height="400" width="400px" leadsTo="test" x="340" y="290px" backgroundColor="#ffffff">
+            <score id="sun" operation="set" value="1"/>
+          </overlay>
+          : Pick amount of water: medium
+          <overlay height="400" width="400px" leadsTo="test" x="760" y="290px" backgroundColor="#ffffff">
+            <score id="sun" operation="set" value="2"/>
+          </overlay>
+          : Pick amount of water: big
+          <overlay height="400" width="400px" leadsTo="test" x="1180" y="290px" backgroundColor="#ffffff">
+            <score id="sun" operation="set" value="3"/>
+          </overlay>
+        </image>
+      </media>
+    </subject>
+
+    <subject id="test">
+      <leadsTo subject="soaked" condition="{{plant}} == 1 &amp;&amp; {{water}} > 1" />
+      <leadsTo subject="withered" condition="{{plant}} == 1 &amp;&amp; {{sun}} > 1" />
+      <leadsTo subject="perfect" condition="{{plant}} == 1" />
+      <leadsTo subject="soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
+      <leadsTo subject="withered" condition="{{plant}} == 2 &amp;&amp; {{water}} &lt; 2" />
+      <leadsTo subject="no-grow" condition="{{plant}} == 2 &amp;&amp; {{sun}} &lt; 3" />
+      <leadsTo subject="perfect" condition="{{plant}} == 2" />
+      <media />
+    </subject>
+
+    <subject id="perfect" leadsTo="easy">
+      <media>
+        <image src="media/perfect.jpg" duration="3" />
+        <!-- <youtube id="eKo5F87A8a0" /> -->
+      </media>
+    </subject>
+
+    <subject id="soaked" leadsTo="easy">
+      <media>
+        <image src="media/soaked.jpg" duration="3" />
+        <!-- <youtube id="zytz31XrogE" /> -->
+      </media>
+    </subject>
+
+    <subject id="withered" leadsTo="easy">
+      <media>
+        <image src="media/withered.jpg" duration="3" />
+        <!-- <youtube id="CXKy2KeAzoE" /> -->
+      </media>
+    </subject>
+
+    <subject id="no-grow" leadsTo="easy">
+      <media>
+        <image src="media/no-grow.jpg" duration="3" />
+        <!-- <youtube id="CXKy2KeAzoE" /> -->
+      </media>
+    </subject>
+  </playlist>
 </ximpel>
