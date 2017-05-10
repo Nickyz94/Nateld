@@ -108,15 +108,15 @@
       <media>
         <image src="media/give_water.png" width="1920px" height="1080px">
           : Pick amount of water: small
-          <overlay height="370" width="220px" leadsTo="sun" x="250" y="400px" backgroundColor="#ffffff">
+          <overlay height="370" width="220px" leadsTo="test-water" x="250" y="400px" backgroundColor="#ffffff">
             <score id="water" operation="set" value="1"/>
           </overlay>
           : Pick amount of water: medium
-          <overlay height="370" width="350px" leadsTo="sun" x="780" y="400px" backgroundColor="#ffffff">
+          <overlay height="370" width="350px" leadsTo="test-water" x="780" y="400px" backgroundColor="#ffffff">
             <score id="water" operation="set" value="2"/>
           </overlay>
           : Pick amount of water: big
-          <overlay height="370" width="500px" leadsTo="sun" x="1290" y="400px" backgroundColor="#ffffff">
+          <overlay height="370" width="540px" leadsTo="test-water" x="1290" y="400px" backgroundColor="#ffffff">
             <score id="water" operation="set" value="3"/>
           </overlay>
         </image>
@@ -126,31 +126,34 @@
     : Give sun
     <subject id="sun">
       <media>
-        <image src="media/give_sun.png" width="1920px" height="1080px">
-          : Pick amount of sun: small
-          <overlay height="370" width="220px" leadsTo="test" x="250" y="400px" backgroundColor="#ffffff">
-            <score id="sun" operation="set" value="1"/>
-          </overlay>
-          : Pick amount of sun: medium
-          <overlay height="370" width="350px" leadsTo="test" x="780" y="400px" backgroundColor="#ffffff">
-            <score id="sun" operation="set" value="2"/>
-          </overlay>
-          : Pick amount of sun: big
-          <overlay height="370" width="500px" leadsTo="test" x="1290" y="400px" backgroundColor="#ffffff">
-            <score id="sun" operation="set" value="3"/>
-          </overlay>
-        </image>
-      </media>
+            <image src="media/give_sun.png" width="1920px" height="1080px">
+                : Pick amount of sun: small
+                <overlay height="370" width="220px" leadsTo="test-sun" x="250" y="400px" backgroundColor="#ffffff">
+                    <score id="sun" operation="set" value="1"/>
+                </overlay>
+                : Pick amount of sun: medium
+                <overlay height="370" width="350px" leadsTo="test-sun" x="780" y="400px" backgroundColor="#ffffff">
+                    <score id="sun" operation="set" value="2"/>
+                </overlay>
+                : Pick amount of sun: big
+                <overlay height="370" width="540px" leadsTo="test-sun" x="1290" y="400px" backgroundColor="#ffffff">
+                    <score id="sun" operation="set" value="3"/>
+                </overlay>
+            </image>
+        </media>
     </subject>
 
-    <subject id="test" leadsTo="test">
-        <!--
-        <leadsTo subject="soaked" condition="{{plant}} == 1 &amp;&amp; {{water}} > 1" />
-        <leadsTo subject="withered" condition="{{plant}} == 1 &amp;&amp; {{sun}} > 1" />
-        <leadsTo subject="perfect" condition="{{plant}} == 1" />
-        -->
-        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} &gt; 2" />
-        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} &gt; 2" />
+    <subject id="test-water">
+        <leadsTo subject="basil-more-water" condition="{{plant}} == 2 &amp;&amp; {{water}} == 1" />
+        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
+        <leadsTo subject="sun" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2"/>
+
+        <media />
+    </subject>
+
+    <subject id="test-sun">
+        <leadsTo subject="basil-more-sunlight" condition="{{plant}} == 2 &amp;&amp; {{sun}} == 1" />
+        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} > 2" />
         <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
 
       <media />
@@ -164,15 +167,35 @@
         </media>
     </subject>
 
-    <subject id="basil-soaked" leadsTo="easy">
+    <subject id="basil-more-water">
         <media>
-            <image src="media/basil_soaked.png" duration="5" />
+            <image src="media/basil_more_water.png" width="1920px" height="1080px">
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+            </image>
         </media>
     </subject>
 
-    <subject id="basil-withered" leadsTo="easy">
+    <subject id="basil-soaked">
         <media>
-            <image src="media/basil_withered.png" duration="5" />
+            <image src="media/basil_soaked.png" width="1920px" height="1080px">
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="basil-withered">
+        <media>
+            <image src="media/basil_withered.png" width="1920px" height="1080px">
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="basil-more-sunlight">
+        <media>
+            <image src="media/basil_more_sunlight.png" width="1920px" height="1080px">
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+            </image>
         </media>
     </subject>
 
@@ -180,16 +203,51 @@
     <subject id="download">
         <media>
             <image src="media/download.png" width="1920px" height="1080px">
-                <overlay leadsTo="url:https://drive.google.com/open?id=0B2CC1eOGre8Ld1E2SXdiOFlqZEU" shape="rectangle" x="720" y="550" width="500px" height="90px" text="Handbook" textColor="gray"/>
-                <overlay leadsTo="url:https://drive.google.com/open?id=0B2CC1eOGre8Lb2RwWXk3andwYVU" shape="rectangle" x="720" y="650" width="500px" height="90px" text="Calendar" textColor="gray"/>
+                <overlay leadsTo="handbook1" x="720" y="550" width="500px" height="90px" text="Handbook" textColor="gray"/>
+                <overlay leadsTo="calendar" x="720" y="650" width="500px" height="90px" text="Calendar" textColor="gray"/>
                 <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="soldier" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="handbook1">
+        <media>
+            <image src="media/handbook1.png" width="1920px" height="1080px">
+                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="40px" y="970px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="handbook2">
+        <media>
+            <image src="media/handbook2.png" width="1920px" height="1080px">
+                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook3" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook1" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="handbook3">
+        <media>
+            <image src="media/handbook3.png" width="1920px" height="1080px">
+                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+            </image>
+        </media>
+    </subject>
+
+    <subject id="calendar">
+        <media>
+            <image src="media/calendar.png" width="1920px" height="1080px">
+                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="20px" y="940px" backgroundColor="white"/>
             </image>
         </media>
     </subject>
 
 
     <subject id="perfect" leadsTo="easy">
-      <media>
+    <media>
         <!-- <image src="media/perfect.jpg" duration="3" /> -->
         <youtube id="eKo5F87A8a0" startTime="5"/>
         <!-- <youtube id="eKo5F87A8a0" /> -->
