@@ -16,8 +16,9 @@
     : Pick a hero
     <subject id="pick-a-hero">
       <media>
-        <image src="media/pick_a_hero.png" duration="5">
-          <overlay height="600px" width="600px" leadsTo="easy" x="660px" y="240px" backgroundColor="#ffffff"/>
+        <image src="media/background.png">
+          <overlay height="550px" width="750px" leadsTo="easy" x="585px" y="265px" image="media/nateldsoldier.png" />
+          <overlay x="660px" y="850px" text="Pick a hero" height="100px" width="600px" textColor="green" />
         </image>
       </media>
     </subject>
