@@ -1,278 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ximpel>
     <playlist>
-    : Intro
-    <variable id="water" operation="set" value="0" />
-    <variable id="sun" operation="set" value="0" />
-    <variable id="plant" operation="set" value="0" />
-    <subject id="intro">
-        <media>
+        <variable id="water" operation="set" value="0"/>
+        <variable id="sun" operation="set" value="0"/>
+        <variable id="plant" operation="set" value="0"/>
+
+        : Intro
+        <subject id="intro">
+            <media>
                 <image src="media/intro.png">
                     <overlay text="Introduction" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="intro-video" x="30px" y="950px" backgroundColor=""/>
-                    <overlay text="Start game" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="character" x="1580px" y="950px" backgroundColor=""/>
+                    <overlay text="Start game" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="novice" x="1580px" y="950px" backgroundColor=""/>
                 </image>
+            </media>
+        </subject>
 
-        </media>
-    </subject>
+        : Introduction  video
+        <subject id="intro-video" leadsTo="intro">
+            <media>
+                <video>
+                    <source file="media/intro_tribute_to_nature" extensions="webm" types="video/mp4,video/webm" />
+                </video>
+            </media>
+        </subject>
 
-    : Introduction  video
-    <subject id="intro-video" leadsTo="intro">
-        <media>
-            <video>
-                <source file="media/intro_tribute_to_nature" extensions="webm" types="video/mp4,video/webm" />
-            </video>
-        </media>
-    </subject>
+        : Character
+        <subject id="novice">
+            <media>
+                <image src="media/novice.png" width="1920px" height="1080px">
+                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="easy" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    : Character
-    <subject id="character">
-        <media>
-            <image src="media/novice.png" width="1920px" height="1080px">
-                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="easy" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="soldier">
+            <media>
+                <image src="media/soldier.png" width="1920px" height="1080px"/>
+            </media>
+        </subject>
 
-    <subject id="soldier">
-        <media>
-            <image src="media/soldier.png" width="1920px" height="1080px"/>
-        </media>
-    </subject>
+        : Easy level
+        <subject id="easy">
+            <media>
+                <image src="media/easy_level.png" width="1920px" height="1080px">
+                    : Pick cilantro
+                    <!--
+                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="1"/>
+                    </overlay>
+                    -->
+                    : Pick basil
+                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="2"/>
+                    </overlay>
+                    : Pick oregano
+                    <!--
+                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="3"/>
+                    </overlay>
+                    -->
+                </image>
+            </media>
+        </subject>
 
-    : Easy level
-    <subject id="easy">
-        <media>
-            <image src="media/easy_level.png" width="1920px" height="1080px">
-                : Pick cilantro
-                <!--
-                <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
-                    <variable id="plant" operation="set" value="1"/>
-                </overlay>
-                -->
-                : Pick basil
-                <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
-                    <variable id="plant" operation="set" value="2"/>
-                </overlay>
-                : Pick oregano
-                <!--
-                <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
-                    <variable id="plant" operation="set" value="3"/>
-                </overlay>
-                -->
-            </image>
-        </media>
-    </subject>
+        : Intermediate level
+        <subject id="intermediate">
+            <media>
+                <image src="media/easy_level.png" duration="5">
+                    : Pick plant 4 (medium)
+                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="1"/>
+                    </overlay>
+                    : Pick plant 5 (medium)
+                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="2"/>
+                    </overlay>
+                    : Pick plant 6 (medium)
+                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="3"/>
+                    </overlay>
+                </image>
+            </media>
+        </subject>
 
-    : Intermediate level
-    <subject id="intermediate">
-      <media>
-        <image src="media/easy_level.png" duration="5">
-          : Pick plant 4 (medium)
-          <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="1"/>
-          </overlay>
-          : Pick plant 5 (medium)
-          <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="2"/>
-          </overlay>
-          : Pick plant 6 (medium)
-          <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="3"/>
-          </overlay>
-        </image>
-      </media>
-    </subject>
+        : Hard level
+        <subject id="hard">
+            <media>
+                <image src="media/pick_a_hero.png" duration="5">
+                    : Pick plant 7 (hard)
+                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="1"/>
+                    </overlay>
+                    : Pick plant 8 (hard)
+                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="2"/>
+                    </overlay>
+                    : Pick plant 9 (hard)
+                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="3"/>
+                    </overlay>
+                </image>
+            </media>
+        </subject>
 
-    : Hard level
-    <subject id="hard">
-      <media>
-        <image src="media/pick_a_hero.png" duration="5">
-          : Pick plant 7 (hard)
-          <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="1"/>
-          </overlay>
-          : Pick plant 8 (hard)
-          <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="2"/>
-          </overlay>
-          : Pick plant 9 (hard)
-          <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
-            <variable id="plant" operation="set" value="3"/>
-          </overlay>
-        </image>
-      </media>
-    </subject>
+        : Give water
+        <subject id="water">
+            <media>
+                <image src="media/give_water.png" width="1920px" height="1080px">
+                    : Pick amount of water: small
+                    <overlay height="370" width="220px" leadsTo="test-water" x="250" y="400px" backgroundColor="#ffffff">
+                        <score id="water" operation="set" value="1"/>
+                    </overlay>
+                    : Pick amount of water: medium
+                    <overlay height="370" width="350px" leadsTo="test-water" x="780" y="400px" backgroundColor="#ffffff">
+                        <score id="water" operation="set" value="2"/>
+                    </overlay>
+                    : Pick amount of water: big
+                    <overlay height="370" width="540px" leadsTo="test-water" x="1290" y="400px" backgroundColor="#ffffff">
+                        <score id="water" operation="set" value="3"/>
+                    </overlay>
+                </image>
+            </media>
+        </subject>
 
-    : Give water
-    <subject id="water">
-      <media>
-        <image src="media/give_water.png" width="1920px" height="1080px">
-          : Pick amount of water: small
-          <overlay height="370" width="220px" leadsTo="test-water" x="250" y="400px" backgroundColor="#ffffff">
-            <score id="water" operation="set" value="1"/>
-          </overlay>
-          : Pick amount of water: medium
-          <overlay height="370" width="350px" leadsTo="test-water" x="780" y="400px" backgroundColor="#ffffff">
-            <score id="water" operation="set" value="2"/>
-          </overlay>
-          : Pick amount of water: big
-          <overlay height="370" width="540px" leadsTo="test-water" x="1290" y="400px" backgroundColor="#ffffff">
-            <score id="water" operation="set" value="3"/>
-          </overlay>
-        </image>
-      </media>
-    </subject>
+        : Give sun
+        <subject id="sun">
+          <media>
+                <image src="media/give_sun.png" width="1920px" height="1080px">
+                    : Pick amount of sun: small
+                    <overlay height="370" width="220px" leadsTo="test-sun" x="250" y="400px" backgroundColor="#ffffff">
+                        <score id="sun" operation="set" value="1"/>
+                    </overlay>
+                    : Pick amount of sun: medium
+                    <overlay height="370" width="350px" leadsTo="test-sun" x="780" y="400px" backgroundColor="#ffffff">
+                        <score id="sun" operation="set" value="2"/>
+                    </overlay>
+                    : Pick amount of sun: big
+                    <overlay height="370" width="540px" leadsTo="test-sun" x="1290" y="400px" backgroundColor="#ffffff">
+                        <score id="sun" operation="set" value="3"/>
+                    </overlay>
+                </image>
+            </media>
+        </subject>
 
-    : Give sun
-    <subject id="sun">
-      <media>
-            <image src="media/give_sun.png" width="1920px" height="1080px">
-                : Pick amount of sun: small
-                <overlay height="370" width="220px" leadsTo="test-sun" x="250" y="400px" backgroundColor="#ffffff">
-                    <score id="sun" operation="set" value="1"/>
-                </overlay>
-                : Pick amount of sun: medium
-                <overlay height="370" width="350px" leadsTo="test-sun" x="780" y="400px" backgroundColor="#ffffff">
-                    <score id="sun" operation="set" value="2"/>
-                </overlay>
-                : Pick amount of sun: big
-                <overlay height="370" width="540px" leadsTo="test-sun" x="1290" y="400px" backgroundColor="#ffffff">
-                    <score id="sun" operation="set" value="3"/>
-                </overlay>
-            </image>
-        </media>
-    </subject>
+        <subject id="test-water">
+            <leadsTo subject="basil-more-water" condition="{{plant}} == 2 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2"/>
 
-    <subject id="test-water">
-        <leadsTo subject="basil-more-water" condition="{{plant}} == 2 &amp;&amp; {{water}} == 1" />
-        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
-        <leadsTo subject="sun" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2"/>
+            <media />
+        </subject>
 
-        <media />
-    </subject>
+        <subject id="test-sun">
+            <leadsTo subject="basil-more-sunlight" condition="{{plant}} == 2 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} > 2" />
+            <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
 
-    <subject id="test-sun">
-        <leadsTo subject="basil-more-sunlight" condition="{{plant}} == 2 &amp;&amp; {{sun}} == 1" />
-        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} > 2" />
-        <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
+            <media />
+        </subject>
 
-      <media />
-    </subject>
+        <subject id="basil-perfect" leadsTo="download">
+            <media>
+                <video>
+                    <source file="media/3d_anim_growing_plant" extensions="mp4,webm" types="video/mp4,video/webm" />
+                    <overlay text="Skip &#9654;|" textfont="Petita" textColor="black" leadsTo="download" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </video>
+            </media>
+        </subject>
 
-    <subject id="basil-perfect" leadsTo="download">
-        <media>
-            <video>
-                <source file="media/3d_anim_growing_plant" extensions="mp4,webm" types="video/mp4,video/webm" />
-            </video>
-        </media>
-    </subject>
+        <subject id="basil-more-water">
+            <media>
+                <image src="media/basil_more_water.png" width="1920px" height="1080px">
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="basil-more-water">
-        <media>
-            <image src="media/basil_more_water.png" width="1920px" height="1080px">
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="basil-soaked">
+            <media>
+                <image src="media/basil_soaked.png" width="1920px" height="1080px">
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="basil-soaked">
-        <media>
-            <image src="media/basil_soaked.png" width="1920px" height="1080px">
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="basil-withered">
+            <media>
+                <image src="media/basil_withered.png" width="1920px" height="1080px">
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="basil-withered">
-        <media>
-            <image src="media/basil_withered.png" width="1920px" height="1080px">
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="basil-more-sunlight">
+            <media>
+                <image src="media/basil_more_sunlight.png" width="1920px" height="1080px">
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="basil-more-sunlight">
-        <media>
-            <image src="media/basil_more_sunlight.png" width="1920px" height="1080px">
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        : Download
+        <subject id="download">
+            <media>
+                <image src="media/download.png" width="1920px" height="1080px">
+                    <overlay leadsTo="handbook1" x="720" y="550" width="500px" height="90px" text="Handbook" textColor="gray"/>
+                    <overlay leadsTo="calendar" x="720" y="650" width="500px" height="90px" text="Calendar" textColor="gray"/>
+                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="soldier" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    : Download
-    <subject id="download">
-        <media>
-            <image src="media/download.png" width="1920px" height="1080px">
-                <overlay leadsTo="handbook1" x="720" y="550" width="500px" height="90px" text="Handbook" textColor="gray"/>
-                <overlay leadsTo="calendar" x="720" y="650" width="500px" height="90px" text="Calendar" textColor="gray"/>
-                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="soldier" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="handbook1">
+            <media>
+                <image src="media/handbook1.png" width="1920px" height="1080px">
+                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="40px" y="970px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="handbook1">
-        <media>
-            <image src="media/handbook1.png" width="1920px" height="1080px">
-                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="40px" y="970px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="handbook2">
+            <media>
+                <image src="media/handbook2.png" width="1920px" height="1080px">
+                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook3" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook1" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="handbook2">
-        <media>
-            <image src="media/handbook2.png" width="1920px" height="1080px">
-                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook3" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook1" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
+        <subject id="handbook3">
+            <media>
+                <image src="media/handbook3.png" width="1920px" height="1080px">
+                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
 
-    <subject id="handbook3">
-        <media>
-            <image src="media/handbook3.png" width="1920px" height="1080px">
-                <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
-
-    <subject id="calendar">
-        <media>
-            <image src="media/calendar.png" width="1920px" height="1080px">
-                <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="20px" y="940px" backgroundColor="white"/>
-            </image>
-        </media>
-    </subject>
-
-
-    <subject id="perfect" leadsTo="easy">
-    <media>
-        <!-- <image src="media/perfect.jpg" duration="3" /> -->
-        <youtube id="eKo5F87A8a0" startTime="5"/>
-        <!-- <youtube id="eKo5F87A8a0" /> -->
-      </media>
-    </subject>
-
-    <subject id="soaked" leadsTo="easy">
-      <media>
-        <image src="media/soaked.jpg" duration="3" />
-        <!-- <youtube id="zytz31XrogE" /> -->
-      </media>
-    </subject>
-
-    <subject id="withered" leadsTo="easy">
-      <media>
-        <image src="media/withered.jpg" duration="3" />
-        <!-- <youtube id="CXKy2KeAzoE" /> -->
-      </media>
-    </subject>
-
-    <subject id="no-grow" leadsTo="easy">
-      <media>
-        <image src="media/no-grow.jpg" duration="3" />
-        <!-- <youtube id="CXKy2KeAzoE" /> -->
-      </media>
-    </subject>
-  </playlist>
+        <subject id="calendar">
+            <media>
+                <image src="media/calendar.png" width="1920px" height="1080px">
+                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="20px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+    </playlist>
 </ximpel>
