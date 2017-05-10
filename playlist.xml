@@ -11,7 +11,7 @@
                     <overlay text="Introduction" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="intro-video" x="30px" y="950px" backgroundColor=""/>
                     <overlay text="Start game" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="character" x="1580px" y="950px" backgroundColor=""/>
                 </image>
-                
+
         </media>
     </subject>
 
@@ -19,7 +19,7 @@
     <subject id="intro-video" leadsTo="intro">
         <media>
             <video>
-                <source file="media/intro_tribute_to_nature" extensions="mp4,webm" types="video/mp4,video/webm" />
+                <source file="media/intro_tribute_to_nature" extensions="webm" types="video/mp4,video/webm" />
             </video>
         </media>
     </subject>
@@ -149,9 +149,9 @@
         <leadsTo subject="withered" condition="{{plant}} == 1 &amp;&amp; {{sun}} > 1" />
         <leadsTo subject="perfect" condition="{{plant}} == 1" />
         -->
-        <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} = 2 &amp;&amp; {{sun}} = 2"/>
-        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{sun}} = 3" />
-        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{water}} = 3" />
+        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
+        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} > 2" />
+        <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
 
       <media />
     </subject>
