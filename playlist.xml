@@ -149,8 +149,8 @@
         <leadsTo subject="withered" condition="{{plant}} == 1 &amp;&amp; {{sun}} > 1" />
         <leadsTo subject="perfect" condition="{{plant}} == 1" />
         -->
-        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} > 2" />
-        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} > 2" />
+        <leadsTo subject="basil-soaked" condition="{{plant}} == 2 &amp;&amp; {{water}} &gt; 2" />
+        <leadsTo subject="basil-withered" condition="{{plant}} == 2 &amp;&amp; {{sun}} &gt; 2" />
         <leadsTo subject="basil-perfect" condition="{{plant}} == 2 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
 
       <media />
