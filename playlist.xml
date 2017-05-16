@@ -7,6 +7,12 @@
         <variable id="plant1" operation="set" value="0"/>
         <variable id="plant2" operation="set" value="0"/>
         <variable id="plant3" operation="set" value="0"/>
+        <variable id="plant4" operation="set" value="0"/>
+        <variable id="plant5" operation="set" value="0"/>
+        <variable id="plant6" operation="set" value="0"/>
+        <variable id="plant7" operation="set" value="0"/>
+        <variable id="plant8" operation="set" value="0"/>
+        <variable id="plant9" operation="set" value="0"/>
 
         : Intro
         <subject id="intro">
@@ -28,7 +34,7 @@
             </media>
         </subject>
 
-        : Character
+        : Characters
         <subject id="novice">
             <media>
                 <image src="media/novice.png" width="1920px" height="1080px">
@@ -39,7 +45,25 @@
 
         <subject id="soldier">
             <media>
-                <image src="media/soldier.png" width="1920px" height="1080px"/>
+                <image src="media/soldier.png" width="1920px" height="1080px">
+                    <overlay text="Next" textColor="gray" leadsTo="intermediate" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+
+        <subject id="knight">
+            <media>
+                <image src="media/knight.png" width="1920px" height="1080px">
+                    <overlay text="Next" textColor="gray" leadsTo="difficult" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+
+        <subject id="hero" leadsTo="endgame">
+            <media>
+                <image src="media/hero.png" width="1920px" height="1080px" duration="3">
+                    <!--<overlay  textColor="gray" leadsTo="endgame" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>-->
+                </image>
             </media>
         </subject>
 
@@ -66,40 +90,38 @@
         : Intermediate level
         <subject id="intermediate">
             <media>
-                <image src="media/intro.png" width="1920px" height="1080px">
-                    <!--
-                    : Pick plant 4 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="1"/>
+                <image src="media/intermediate_level.png" width="1920px" height="1080px">
+                    : Pick fennel
+                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="4"/>
                     </overlay>
-                    : Pick plant 5 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="2"/>
+                    : Pick thyme
+                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="5"/>
                     </overlay>
-                    : Pick plant 6 (medium)
-                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="3"/>
+                    : Pick sage
+                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="6"/>
                     </overlay>
-                -->
                 </image>
             </media>
         </subject>
 
-        : Hard level
-        <subject id="hard">
+        : Difficult level
+        <subject id="difficult">
             <media>
-                <image src="media/pick_a_hero.png" duration="5">
-                    : Pick plant 7 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="340" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="1"/>
+                <image src="media/difficult_level.png" width="1920px" height="1080px">
+                    : Pick peppermint
+                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="7"/>
                     </overlay>
-                    : Pick plant 8 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="760" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="2"/>
+                    : Pick parsley  
+                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="8"/>
                     </overlay>
-                    : Pick plant 9 (hard)
-                    <overlay height="400" width="400px" leadsTo="water" x="1180" y="290px" backgroundColor="#ffffff">
-                        <variable id="plant" operation="set" value="3"/>
+                    : Pick chives
+                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                        <variable id="plant" operation="set" value="9"/>
                     </overlay>
                 </image>
             </media>
@@ -139,6 +161,30 @@
             <leadsTo subject="more-water" condition="{{plant}} == 3 &amp;&amp; {{water}} == 2" />
             <leadsTo subject="sun" condition="{{plant}} == 3 &amp;&amp; {{water}} == 3"/>
 
+            <leadsTo subject="more-water" condition="{{plant}} == 4 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="soaked" condition="{{plant}} == 4 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 4 &amp;&amp; {{water}} == 2"/>
+
+            <leadsTo subject="more-water" condition="{{plant}} == 5 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="soaked" condition="{{plant}} == 5 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 5 &amp;&amp; {{water}} == 2"/>
+
+            <leadsTo subject="more-water" condition="{{plant}} == 6 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="soaked" condition="{{plant}} == 6 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 6 &amp;&amp; {{water}} == 2"/>
+
+            <leadsTo subject="more-water" condition="{{plant}} == 7 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="soaked" condition="{{plant}} == 7 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 7 &amp;&amp; {{water}} == 2"/>
+
+            <leadsTo subject="soaked" condition="{{plant}} == 8 &amp;&amp; {{water}} == 2" />
+            <leadsTo subject="soaked" condition="{{plant}} == 8 &amp;&amp; {{water}} == 3" />
+            <leadsTo subject="sun" condition="{{plant}} == 8 &amp;&amp; {{water}} == 1"/>
+
+            <leadsTo subject="more-water" condition="{{plant}} == 9 &amp;&amp; {{water}} == 1" />
+            <leadsTo subject="soaked" condition="{{plant}} == 9 &amp;&amp; {{water}} > 2" />
+            <leadsTo subject="sun" condition="{{plant}} == 9 &amp;&amp; {{water}} == 2"/>
+
             <media />
         </subject>
 
@@ -176,15 +222,39 @@
             <leadsTo subject="more-sunlight" condition="{{plant}} == 3 &amp;&amp; {{sun}} == 2" />
             <leadsTo subject="perfect" condition="{{plant}} == 3 &amp;&amp; {{water}} == 3 &amp;&amp; {{sun}} == 3"/>
 
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 4 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 4 &amp;&amp; {{sun}} == 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 4 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 3"/>
+
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 5 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 5 &amp;&amp; {{sun}} == 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 5 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 3"/>
+
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 6 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="withered" condition="{{plant}} == 6 &amp;&amp; {{sun}} > 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 6 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
+
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 7 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="withered" condition="{{plant}} == 7 &amp;&amp; {{sun}} > 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 7 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
+
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 8 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="withered" condition="{{plant}} == 8 &amp;&amp; {{sun}} > 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 8 &amp;&amp; {{water}} == 1 &amp;&amp; {{sun}} == 2"/>
+
+            <leadsTo subject="more-sunlight" condition="{{plant}} == 9 &amp;&amp; {{sun}} == 1" />
+            <leadsTo subject="withered" condition="{{plant}} == 9 &amp;&amp; {{sun}} > 2" />
+            <leadsTo subject="perfect" condition="{{plant}} == 9 &amp;&amp; {{water}} == 2 &amp;&amp; {{sun}} == 2"/>
+
             <media />
         </subject>
 
         : Plant grew perfectly
-        <subject id="perfect" leadsTo="download">
+        <subject id="perfect" leadsTo="redirectSucces">
             <media>
                 <video>
                     <source file="media/3d_anim_growing_plant" extensions="mp4,webm" types="video/mp4,video/webm" />
-                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="download" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="redirectSucces" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </video>
             </media>
         </subject>
@@ -240,6 +310,12 @@
             <leadsTo subject="succes1" condition="{{plant}} == 1" />
             <leadsTo subject="succes2" condition="{{plant}} == 2" />
             <leadsTo subject="succes3" condition="{{plant}} == 3" />
+            <leadsTo subject="succes4" condition="{{plant}} == 4" />
+            <leadsTo subject="succes5" condition="{{plant}} == 5" />
+            <leadsTo subject="succes6" condition="{{plant}} == 6" />
+            <leadsTo subject="succes7" condition="{{plant}} == 7" />
+            <leadsTo subject="succes8" condition="{{plant}} == 8" />
+            <leadsTo subject="succes9" condition="{{plant}} == 9" />
 
             <media/>
         </subject>
@@ -256,6 +332,36 @@
 
         <subject id="succes3" leadsTo="test-easy-level">
             <variable id="plant3" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes4" leadsTo="test-intermediate-level">
+            <variable id="plant4" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes5" leadsTo="test-intermediate-level">
+            <variable id="plant5" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes6" leadsTo="test-intermediate-level">
+            <variable id="plant6" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes7" leadsTo="test-difficult-level">
+            <variable id="plant7" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes8" leadsTo="test-difficult-level">
+            <variable id="plant8" operation="set" value="1"/>
+            <media/>
+        </subject>
+
+        <subject id="succes9" leadsTo="test-difficult-level">
+            <variable id="plant9" operation="set" value="1"/>
             <media/>
         </subject>
 
@@ -296,11 +402,63 @@
             </media>
         </subject>
 
+        : Test easy level
         <subject id="test-easy-level">
-            <leadsTo subject="intermediate" condition="{{plant1}} == 1 &amp;&amp; {{plant2}} == 1 &amp;&amp; {{plant3}} == 1"/>
+            <leadsTo subject="easy-level-reward" condition="{{plant1}} == 1 &amp;&amp; {{plant2}} == 1 &amp;&amp; {{plant3}} == 1"/>
             <leadsTo subject="easy"/>
 
             <media />
+        </subject>
+
+        : Test intermediate level
+        <subject id="test-intermediate-level">
+            <leadsTo subject="intermediate-level-reward" condition="{{plant4}} == 1 &amp;&amp; {{plant5}} == 1 &amp;&amp; {{plant6}} == 1"/>
+            <leadsTo subject="intermediate"/>
+
+            <media />
+        </subject>
+
+        : Test difficult level
+        <subject id="test-difficult-level">
+            <leadsTo subject="difficult-level-reward" condition="{{plant7}} == 1 &amp;&amp; {{plant8}} == 1 &amp;&amp; {{plant9}} == 1"/>
+            <leadsTo subject="difficult"/>
+
+            <media />
+        </subject>
+
+        : Rewards
+        <subject id="easy-level-reward">
+            <media>
+                <image src="media/easy_level_reward.png" width="1920px" height="1080px">
+                    <overlay text="Next" textColor="gray" leadsTo="soldier" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+
+        <subject id="intermediate-level-reward">
+            <media>
+                <image src="media/intermediate_level_reward.png" width="1920px" height="1080px">
+                    <overlay text="Next" textColor="gray" leadsTo="knight" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+
+        <subject id="difficult-level-reward">
+            <media>
+                <image src="media/difficult_level_reward.png" width="1920px" height="1080px">
+                    <overlay text="Next" textColor="gray" leadsTo="hero" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </image>
+            </media>
+        </subject>
+
+        : End game video
+        <subject id="endgame" leadsTo="intro">
+            <media>
+                <video>
+                    <source file="media/endgame-clip" extensions="webm" types="video/mp4,video/webm" />
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="intro " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                </video>
+            </media>
         </subject>
     </playlist>
 </ximpel>
