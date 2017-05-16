@@ -12,8 +12,8 @@
         <subject id="intro">
             <media>
                 <image src="media/intro.png">
-                    <overlay text="Introduction" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="intro-video" x="30px" y="950px" backgroundColor=""/>
-                    <overlay text="Start game" textfont="Petita" textColor="white" height="90px" width="300px" leadsTo="novice" x="1580px" y="950px" backgroundColor=""/>
+                    <overlay text="Introduction" textColor="white" height="90px" width="300px" leadsTo="intro-video" x="30px" y="950px" backgroundColor=""/>
+                    <overlay text="Start game" textColor="white" height="90px" width="300px" leadsTo="novice" x="1580px" y="950px" backgroundColor=""/>
                 </image>
             </media>
         </subject>
@@ -23,7 +23,7 @@
             <media>
                 <video>
                     <source file="media/intro_tribute_to_nature" extensions="webm" types="video/mp4,video/webm" />
-                    <overlay text="Skip &#9654;|" textfont="Petita" textColor="black" leadsTo="intro " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="intro " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </video>
             </media>
         </subject>
@@ -32,7 +32,7 @@
         <subject id="novice">
             <media>
                 <image src="media/novice.png" width="1920px" height="1080px">
-                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="easy" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="easy" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -184,7 +184,7 @@
             <media>
                 <video>
                     <source file="media/3d_anim_growing_plant" extensions="mp4,webm" types="video/mp4,video/webm" />
-                    <overlay text="Skip &#9654;|" textfont="Petita" textColor="black" leadsTo="download" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="download" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </video>
             </media>
         </subject>
@@ -193,7 +193,7 @@
         <subject id="more-water">
             <media>
                 <image src="media/more_water.png" width="1920px" height="1080px">
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -202,7 +202,7 @@
         <subject id="soaked">
             <media>
                 <image src="media/soaked.png" width="1920px" height="1080px">
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="water" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -211,7 +211,7 @@
         <subject id="more-sunlight">
             <media>
                 <image src="media/more_sunlight.png" width="1920px" height="1080px">
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -220,7 +220,7 @@
         <subject id="withered">
             <media>
                 <image src="media/withered.png" width="1920px" height="1080px">
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="sun" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -231,35 +231,40 @@
                 <image src="media/download.png" width="1920px" height="1080px">
                     <overlay leadsTo="handbook1" x="720" y="550" width="500px" height="90px" text="Handbook" textColor="gray"/>
                     <overlay leadsTo="calendar" x="720" y="650" width="500px" height="90px" text="Calendar" textColor="gray"/>
-                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="redirectSucces" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="redirectSucces" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
 
-        <subject id="redirectSucces">
+        <subject id="redirectSucces" leadsTo="test-easy-level">
             <leadsTo subject="succes1" condition="{{plant}} == 1" />
             <leadsTo subject="succes2" condition="{{plant}} == 2" />
             <leadsTo subject="succes3" condition="{{plant}} == 3" />
+
+            <media/>
         </subject>
 
         <subject id="succes1" leadsTo="test-easy-level">
             <variable id="plant1" operation="set" value="1"/>
+            <media/>
         </subject>
 
         <subject id="succes2" leadsTo="test-easy-level">
             <variable id="plant2" operation="set" value="1"/>
+            <media/>
         </subject>
 
         <subject id="succes3" leadsTo="test-easy-level">
             <variable id="plant3" operation="set" value="1"/>
+            <media/>
         </subject>
 
         : Handbook
         <subject id="handbook1">
             <media>
                 <image src="media/handbook1.png" width="1920px" height="1080px">
-                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="40px" y="970px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="handbook2" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="download" height="60px" width="200px" x="40px" y="970px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -267,8 +272,8 @@
         <subject id="handbook2">
             <media>
                 <image src="media/handbook2.png" width="1920px" height="1080px">
-                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="handbook3" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook1" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="handbook3" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="handbook1" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -276,8 +281,8 @@
         <subject id="handbook3">
             <media>
                 <image src="media/handbook3.png" width="1920px" height="1080px">
-                    <overlay text="Next" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="handbook2" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="download" height="60px" width="180px" x="1700px" y="970px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="handbook2" height="60px" width="200px" x="50px" y="970px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -286,7 +291,7 @@
         <subject id="calendar">
             <media>
                 <image src="media/calendar.png" width="1920px" height="1080px">
-                    <overlay text="Go back" textfont="Petita" textColor="gray" leadsTo="download" height="60px" width="200px" x="20px" y="940px" backgroundColor="white"/>
+                    <overlay text="Go back" textColor="gray" leadsTo="download" height="60px" width="200px" x="20px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
