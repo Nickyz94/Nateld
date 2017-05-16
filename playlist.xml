@@ -46,7 +46,7 @@
         <subject id="soldier">
             <media>
                 <image src="media/soldier.png" width="1920px" height="1080px">
-                    <overlay text="Next" textColor="gray" leadsTo="intermediate" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="easy-level-reward" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -54,14 +54,14 @@
         <subject id="knight">
             <media>
                 <image src="media/knight.png" width="1920px" height="1080px">
-                    <overlay text="Next" textColor="gray" leadsTo="difficult" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="intermediate-level-reward" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
 
         <subject id="hero" leadsTo="endgame">
             <media>
-                <image src="media/hero.png" width="1920px" height="1080px" duration="3">
+                <image src="media/hero.png" width="1920px" height="1080px" duration="5">
                     <!--<overlay  textColor="gray" leadsTo="endgame" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>-->
                 </image>
             </media>
@@ -404,7 +404,7 @@
 
         : Test easy level
         <subject id="test-easy-level">
-            <leadsTo subject="easy-level-reward" condition="{{plant1}} == 1 &amp;&amp; {{plant2}} == 1 &amp;&amp; {{plant3}} == 1"/>
+            <leadsTo subject="soldier" condition="{{plant1}} == 1 &amp;&amp; {{plant2}} == 1 &amp;&amp; {{plant3}} == 1"/>
             <leadsTo subject="easy"/>
 
             <media />
@@ -412,7 +412,7 @@
 
         : Test intermediate level
         <subject id="test-intermediate-level">
-            <leadsTo subject="intermediate-level-reward" condition="{{plant4}} == 1 &amp;&amp; {{plant5}} == 1 &amp;&amp; {{plant6}} == 1"/>
+            <leadsTo subject="knight" condition="{{plant4}} == 1 &amp;&amp; {{plant5}} == 1 &amp;&amp; {{plant6}} == 1"/>
             <leadsTo subject="intermediate"/>
 
             <media />
@@ -420,7 +420,7 @@
 
         : Test difficult level
         <subject id="test-difficult-level">
-            <leadsTo subject="difficult-level-reward" condition="{{plant7}} == 1 &amp;&amp; {{plant8}} == 1 &amp;&amp; {{plant9}} == 1"/>
+            <leadsTo subject="hero" condition="{{plant7}} == 1 &amp;&amp; {{plant8}} == 1 &amp;&amp; {{plant9}} == 1"/>
             <leadsTo subject="difficult"/>
 
             <media />
@@ -429,8 +429,8 @@
         : Rewards
         <subject id="easy-level-reward">
             <media>
-                <image src="media/easy_level_reward.png" width="1920px" height="1080px">
-                    <overlay text="Next" textColor="gray" leadsTo="soldier" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                <image src="media/easy_level_reward.png" width="1920px" height="1080px" hoverImage="media/calendar.png">
+                    <overlay text="Next" textColor="gray" leadsTo="intermediate" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -438,7 +438,7 @@
         <subject id="intermediate-level-reward">
             <media>
                 <image src="media/intermediate_level_reward.png" width="1920px" height="1080px">
-                    <overlay text="Next" textColor="gray" leadsTo="knight" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Next" textColor="gray" leadsTo="difficult" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
@@ -446,17 +446,17 @@
         <subject id="difficult-level-reward">
             <media>
                 <image src="media/difficult_level_reward.png" width="1920px" height="1080px">
-                    <overlay text="Next" textColor="gray" leadsTo="hero" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Play again" textColor="gray" leadsTo="intro" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </image>
             </media>
         </subject>
 
         : End game video
-        <subject id="endgame" leadsTo="intro">
+        <subject id="endgame" leadsTo="difficult-level-reward">
             <media>
                 <video>
                     <source file="media/endgame-clip" extensions="webm" types="video/mp4,video/webm" />
-                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="intro " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="difficult-level-reward " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </video>
             </media>
         </subject>
