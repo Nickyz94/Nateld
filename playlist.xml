@@ -29,7 +29,7 @@
             <media>
                 <video>
                     <source file="media/intro_tribute_to_nature" extensions="webm" types="video/mp4,video/webm" />
-                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="intro " height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+                    <overlay text="Skip &#9654;|" textColor="black" leadsTo="intro" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
                 </video>
             </media>
         </subject>
