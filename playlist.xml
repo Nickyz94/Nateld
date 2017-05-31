@@ -72,15 +72,15 @@
             <media>
                 <image src="media/easy_level.png" width="1920px" height="1080px">
                     : Pick cilantro
-                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="220" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="1"/>
                     </overlay>
                     : Pick basil
-                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="780" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="2"/>
                     </overlay>
                     : Pick oregano
-                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="1350" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="3"/>
                     </overlay>
                 </image>
@@ -92,15 +92,15 @@
             <media>
                 <image src="media/intermediate_level.png" width="1920px" height="1080px">
                     : Pick fennel
-                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="220" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="4"/>
                     </overlay>
                     : Pick thyme
-                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="780" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="5"/>
                     </overlay>
                     : Pick sage
-                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="1350" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="6"/>
                     </overlay>
                 </image>
@@ -112,19 +112,62 @@
             <media>
                 <image src="media/difficult_level.png" width="1920px" height="1080px">
                     : Pick peppermint
-                    <overlay height="470" width="400px" leadsTo="water" x="220" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="220" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="7"/>
                     </overlay>
                     : Pick parsley
-                    <overlay height="470" width="400px" leadsTo="water" x="780" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="780" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="8"/>
                     </overlay>
                     : Pick chives
-                    <overlay height="470" width="400px" leadsTo="water" x="1350" y="315px" backgroundColor="#ffffff">
+                    <overlay height="470" width="400px" leadsTo="already_completed_check" x="1350" y="315px" backgroundColor="#ffffff">
                         <variable id="plant" operation="set" value="9"/>
                     </overlay>
                 </image>
             </media>
+        </subject>
+
+        : Check if plant was already completed
+        <subject id="already_completed_check" leadsTo="water">
+          <leadsTo subject="already_completed" condition="{{plant}} == 1 &amp;&amp; {{plant1}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 2 &amp;&amp; {{plant2}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 3 &amp;&amp; {{plant3}} == 1" />
+
+          <leadsTo subject="already_completed" condition="{{plant}} == 4 &amp;&amp; {{plant4}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 5 &amp;&amp; {{plant5}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 6 &amp;&amp; {{plant6}} == 1" />
+
+          <leadsTo subject="already_completed" condition="{{plant}} == 7 &amp;&amp; {{plant7}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 8 &amp;&amp; {{plant8}} == 1" />
+          <leadsTo subject="already_completed" condition="{{plant}} == 9 &amp;&amp; {{plant9}} == 1" />
+
+          <media />
+        </subject>
+
+        : Already completed the plant
+        <subject id="already_completed">
+          <media>
+              <image src="media/already_completed.jpg" width="1920px" height="1080px">
+                <overlay text="Back" textColor="gray" leadsTo="back_to_right_level" height="90px" width="200px" x="1700px" y="940px" backgroundColor="white"/>
+              </image>
+          </media>
+        </subject>
+
+        : Redirects to the right level
+        <subject id="back_to_right_level">
+          <leadsTo subject="easy" condition="{{plant}} == 1" />
+          <leadsTo subject="easy" condition="{{plant}} == 2" />
+          <leadsTo subject="easy" condition="{{plant}} == 3" />
+
+          <leadsTo subject="intermediate" condition="{{plant}} == 4" />
+          <leadsTo subject="intermediate" condition="{{plant}} == 5" />
+          <leadsTo subject="intermediate" condition="{{plant}} == 6" />
+
+          <leadsTo subject="difficult" condition="{{plant}} == 7" />
+          <leadsTo subject="difficult" condition="{{plant}} == 8" />
+          <leadsTo subject="difficult" condition="{{plant}} == 9" />
+
+          <media />
         </subject>
 
         : Give water
